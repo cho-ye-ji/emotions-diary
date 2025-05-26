@@ -23,7 +23,6 @@ function App() {
       <Button text={"123"} onClick={()=>{
         console.log("123 버튼 클릭")
       }}/>
-
       <Routes>
         <Route path='/' element={<Home />} />
         <Route path='/new' element={<New />} />
