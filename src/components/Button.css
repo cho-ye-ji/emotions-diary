@@ -5,5 +5,12 @@
     border-radius: 5px;
     padding: 10px 20px;
     font-size: 18px;
-    white-space: nowrap; /*줄바굼 금지*/
+    white-space: nowrap; /*줄바꿈 금지*/
+}
+.Button_POSITIVE{
+    background-color: rgb(100, 201, 100);
+}
+.Button_NAGATIVE{
+    background-color: rgb(253, 86, 95);
+    color: #fff;
 }

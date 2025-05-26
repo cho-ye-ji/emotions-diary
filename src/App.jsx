@@ -6,6 +6,7 @@ import Diary from './pages/Diary'
 import New from './pages/New'
 import NotFound from './pages/NotFound'
 import Button from './components/Button'
+import Header  from './components/Header'
 
 import { getEmotionImage } from './util/get-emotion-image'
 
@@ -20,7 +21,24 @@ function App() {
   }
   return(
     <>
-      <Button text={"123"} onClick={()=>{
+    <Header 
+    title ={"header"}
+    leftChild={<Button text={"left"}/>}
+    rightChild={<Button text={"right"}/>}
+    />
+      <Button text={"123"} 
+        type={"DEFAULT"}
+        onClick={()=>{
+        console.log("123 버튼 클릭")
+      }}/>
+      <Button text={"123"} 
+        type={"POSITIVE"}
+        onClick={()=>{
+        console.log("123 버튼 클릭")
+      }}/>
+      <Button text={"123"} 
+        type={"NAGATIVE"}
+        onClick={()=>{
         console.log("123 버튼 클릭")
       }}/>
       <Routes>
