@@ -1,12 +1,11 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
+// import { useState } from 'react'
 import './App.css'
 import { Routes, Route, Link, useNavigate } from 'react-router-dom'
 import Home from './pages/Home'
 import Diary from './pages/Diary'
 import New from './pages/New'
 import NotFound from './pages/NotFound'
+import Button from './components/Button'
 
 import { getEmotionImage } from './util/get-emotion-image'
 
@@ -16,30 +15,21 @@ import { getEmotionImage } from './util/get-emotion-image'
 function App() {
   const nav = useNavigate();
 
-  const onClickButton = () =>{
+  const onClickButton = () => {
     nav('/new');
   }
   return(
     <>
-    <div>
-      <img src={getEmotionImage(1)} />
-      <img src={getEmotionImage(2)} />
-      <img src={getEmotionImage(3)} />
-      <img src={getEmotionImage(4)} />
-      <img src={getEmotionImage(5)} />
-    </div>
-    <div>
-      <Link to={"/"}>Home</Link>
-      <Link to={"/new"}> New</Link>
-      <Link to={"/diary"}> Diary </Link>
-    </div>
-    <button onClick={onClickButton}> New page로 이동 </button>
-    <Routes>
-      <Route path='/' element={<Home />} />
-      <Route path='/new' element={<New />} />
-      <Route path='/diary/:id' element={<Diary />} />
-      <Route path='*' element={<NotFound />}/>
-    </Routes>
+      <Button text={"123"} onClick={()=>{
+        console.log("123 버튼 클릭")
+      }}/>
+
+      <Routes>
+        <Route path='/' element={<Home />} />
+        <Route path='/new' element={<New />} />
+        <Route path='/diary/:id' element={<Diary />} />
+        <Route path='*' element={<NotFound />}/>
+      </Routes>
     </>
   ); 
 }

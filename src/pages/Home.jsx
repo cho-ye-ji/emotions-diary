@@ -1,6 +1,9 @@
-//임시
+import { useSearchParams } from "react-router-dom";
+
 const Home = () => {
-    return <div> Home </div>
+    const [params, setParams] = useSearchParams();
+
+    return <div> Home 위치! </div>
 }
 
 export default Home;
