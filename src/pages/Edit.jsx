@@ -5,4 +5,4 @@ const Edit = () => {
     return <div> {params.id}번 일기입니다. Edit </div>
 }
 
-export default Edit;
+export default Edit
