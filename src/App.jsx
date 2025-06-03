@@ -17,16 +17,22 @@ import { getEmotionImage } from './util/get-emotion-image'
 const mockData = [
   {
     id: 1,
-    createDate: new Date().getTime(),
+    createdDate: new Date("2025-06-03").getTime(),
     emotionId: 1,
     content: "1번 일기 내용"
   },
   {
     id: 2,
-    createDate: new Date().getTime(),
+    createdDate: new Date("2025-06-04").getTime(),
     emotionId: 2,
     content: "2번 일기 내용"
-  }
+  },
+  {
+    id: 3,
+    createdDate: new Date("2025-04-27").getTime(),
+    emotionId: 3,
+    content: "3번 일기 내용"
+  },
 ]
 
 function reducer(state, action){
@@ -46,33 +52,33 @@ function reducer(state, action){
   }
 }
 //일기 데이터를 공급할 context
-const DiaryStateContext = createContext();
-const DiaryDispatchContext = createContext();
+export const DiaryStateContext = createContext();
+export const DiaryDispatchContext = createContext();
 
 function App() {
   const [data, dispatch] = useReducer(reducer, mockData);
   const idRef = useRef(3); //id저장
 
   //새로운 일기 추가
-  const onCreate = (createDate, emotionId, content) => {
+  const onCreate = (createdDate, emotionId, content) => {
     dispatch({
       type: "CREATE",
       data: {
         id: idRef.current++,
-        createDate,
+        createdDate,
         emotionId,
         content
       }
     })
   }
   //기존 일기 수정
-  const onUpdate = (id, createDate, emotionId, content) => {
+  const onUpdate = (id, createdDate, emotionId, content) => {
     dispatch(
       {
         type: "UPDATE",
         data : {
           id, 
-          createDate, 
+          createdDate, 
           emotionId, 
           content
         }
@@ -90,7 +96,7 @@ function App() {
   return(
     <>
 
-      <DiaryStateContext.Provider value={{data}}>
+      <DiaryStateContext.Provider value={data}>
         <DiaryDispatchContext.Provider value={{
           onCreate,
           onUpdate,
