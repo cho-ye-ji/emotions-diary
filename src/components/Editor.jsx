@@ -2,6 +2,7 @@ import './Editor.css';
 import EmotionItem from './EmotionItem';
 import Button from './Button';
 import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 const emotionList = [
     {
@@ -43,11 +44,14 @@ const getStringedDate = (targetDate) => {
 };
 
 const Editor = ({ onSubmit }) => {
+    
     const [input, setInput] = useState({
         createdDate : new Date(),
         emotionId : 3,
         content : "",
     });
+
+    const nav = useNavigate();
 
     // 달력 날짜 클릭 했을 떄 그 날짜의 데이터 저장, 보관?
     const onChangeInput = (e) => {
@@ -109,7 +113,9 @@ const Editor = ({ onSubmit }) => {
                     placeholder='오늘은 어땠나요?' />
             </section>
             <section className='button_section'>
-            <Button text={"취소하기"}/>
+            <Button 
+                onClick={()=> nav(-1)}
+                text={"취소하기"}/>
             <Button 
                 onClick={onClickSubmitButton}
                 text={"작성완료"} 
