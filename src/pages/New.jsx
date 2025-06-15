@@ -15,6 +15,7 @@ const New = () => {
             input.emotionId, 
             input.content
         );
+        nav('/', {replace: true}); //홈이동 뒤로 가기방지
     };
 
     return(
