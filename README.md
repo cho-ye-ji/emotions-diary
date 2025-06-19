@@ -1,6 +1,3 @@
-감정 일기장(React App)
-
-
 
 # React + Vite , Emotion diary React App
 
