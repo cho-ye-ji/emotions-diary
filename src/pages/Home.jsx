@@ -4,6 +4,7 @@ import { DiaryStateContext } from '../App';
 import Header from "../components/Header";
 import Button from "../components/Button";
 import DiaryList from "../components/DiaryList";
+import usePageTitle from '../hooks/usePageTitle';
 
 //해당 달(이번달) 안에 일기를 불러오기 위한 이벤트 핸들러
 const getMonthlyData = (pivotDate, data) => {
@@ -35,7 +36,8 @@ const Home = () => {
 
     const monthlyData = getMonthlyData(pivotDate, data);
     // console.log(monthlyData);
-
+    usePageTitle("감정 일기장");
+    
     const onIncreaseMonth = () => {
         setPivotDate(new Date(pivotDate.getFullYear(), pivotDate.getMonth() + 1))
     };
