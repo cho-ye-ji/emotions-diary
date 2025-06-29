@@ -137,8 +137,8 @@ function App() {
           </Routes>
         </DiaryDispatchContext.Provider>
       </DiaryStateContext.Provider>
-      </BrowserRouter>
+    </BrowserRouter>
   ); 
 }
 
-export default App;
+export default App
