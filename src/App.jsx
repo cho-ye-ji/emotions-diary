@@ -121,7 +121,7 @@ function App() {
     return <div> 데이터 로딩중입니다. </div>;
   }
   return(
-    <>
+    <BrowserRouter basename="/emotions-diary">
       <DiaryStateContext.Provider value={data}>
         <DiaryDispatchContext.Provider value={{
           onCreate,
@@ -137,7 +137,7 @@ function App() {
           </Routes>
         </DiaryDispatchContext.Provider>
       </DiaryStateContext.Provider>
-    </>
+    </BrowserRouter>
   ); 
 }
 
