@@ -1,7 +1,7 @@
 // import { useState } from 'react'
 import './App.css'
 import { useReducer,useRef, createContext, useEffect, useState  } from 'react'
-import { Routes, Route, Link, useNavigate } from 'react-router-dom'
+import { Routes, Route, Link, useNavigate,BrowserRouter } from 'react-router-dom'
 import Home from './pages/Home'
 import Diary from './pages/Diary'
 import New from './pages/New'
@@ -121,7 +121,7 @@ function App() {
     return <div> 데이터 로딩중입니다. </div>;
   }
   return(
-    < >
+    <BrowserRouter basename="/emotions-diary">
       <DiaryStateContext.Provider value={data}>
         <DiaryDispatchContext.Provider value={{
           onCreate,
@@ -137,8 +137,8 @@ function App() {
           </Routes>
         </DiaryDispatchContext.Provider>
       </DiaryStateContext.Provider>
-    </>
+      </BrowserRouter>
   ); 
 }
 
-export default App
+export default App;
